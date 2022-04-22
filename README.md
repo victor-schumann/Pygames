@@ -2,11 +2,15 @@
 <p align="justify">A simple repository where I will organize all my python project that are videogame themed.</p>
 
 ## Contents
+* [Pong](#pong)
 
-# #1 - Lonely Pong
+# Games
+## Pong
 <br><div align="center">
-  <img src='https://i.imgur.com/Uwcv9IE.png' alt='lonely pong' style="width: 75%"/>
+  <img src='https://i.imgur.com/N5VLmeP.png' alt='lonely pong' style="width: 75%"/>
 </div><br>
+
+<p align="justify">A simple pong clone that works with the Turtle library.</p>
 
 # Contact & Info
 <p align="center">
