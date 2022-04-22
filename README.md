@@ -1,5 +1,5 @@
 # Python Games
-<p align="justify">A simple repository where I will organize all my python project that are videogame themed.</p>
+<p align="justify">A simple repository where I will organize all my python projects that are videogame themed.</p>
 
 ## Contents
 * [Pong](#pong)
@@ -10,7 +10,7 @@
   <img src='https://i.imgur.com/N5VLmeP.png' alt='lonely pong' style="width: 75%"/>
 </div><br>
 
-<p align="justify">A simple pong clone that works with the Turtle library. I followed @TokyoEdTech tutorial on it, and while it does not go in depth with Object Oriented Programming, it's a nice bare bones approach to gamedev. I recommend it to any begginer that wants a hands on approach.</p>
+<p align="justify">A simple pong clone that works with the Turtle library. I followed @TokyoEdTech tutorial on it, and while it does not go in depth with Object Oriented Programming, it's a nice bare bones approach to gamedev. I recommend it to any begginer wgo wants a hands on approach.</p>
 
 # Contact & Info
 <p align="center">
