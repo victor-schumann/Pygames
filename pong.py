@@ -1,7 +1,7 @@
 """Simple pong singleplayer built in Python 3 with the turtle module;
 Originally made by @TokyoEdTech & customized by @schumann_victor.
 
-The current version of the game in on singleplayer mode. To revert it back to multiplayer, simply change `paddle_a.shapesize(stretch_wid=300)` to `paddle_a.shapesize(stretch_wid=5` and the bouncing `paddle_a.ycor() +- 300` to `paddle_a.ycor() +- 50`
+The current version of the game in on singleplayer mode. To revert it back to multiplayer, simply change `paddle_a.shapesize(stretch_wid=300)` to `paddle_a.shapesize(stretch_wid=5` and the bouncing `paddle_a.ycor() +- 300` to `paddle_a.ycor() +- 50`. Also, do not forget to change the text to suit a multiplayer environment.
 """
 
 # Environment set up;
@@ -41,15 +41,24 @@ paddle_b.goto(350, 0)
 
 # Ball
 ball = turtle.Turtle()
-"""Friendly reminder 'dx' & 'dy' define pixel value of delta. Change with caution.
+"""Friendly reminder: 'dx' & 'dy' define pixel value of delta. Change with caution.
 """
 ball.speed(0)
 ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = .2
-ball.dy = .2
+ball.dx = .1
+ball.dy = .1
+
+# Pen
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player Score = 0", align="center", font=("Courier", 10000, "normal"))
 
 # Functions
 def paddle_a_up():
@@ -70,14 +79,14 @@ def paddle_b_up():
     """Assigns y coordinates to custom variable 'y' so we move the paddle_b up.
     """
     y = paddle_b.ycor()
-    y += 45
+    y += 40
     paddle_b.sety(y)
 
 def paddle_b_down():
     """Assigns y coordinates to custom variable 'y' so we move the paddle_b down.
     """
     y = paddle_b.ycor()
-    y -= 45
+    y -= 40
     paddle_b.sety(y)
 
 # Keyboard Binding
