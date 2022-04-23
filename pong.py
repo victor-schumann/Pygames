@@ -1,15 +1,13 @@
-"""Simple pong singleplayer built in Python 3 with the turtle module;
+"""Simple pong built in Python 3 with the turtle module;
 Originally made by @TokyoEdTech & customized by @schumann_victor.
-
-The current version of the game in on singleplayer mode. To revert it back to multiplayer, simply change `paddle_a.shapesize(stretch_wid=300)` to `paddle_a.shapesize(stretch_wid=5` and the bouncing `paddle_a.ycor() +- 300` to `paddle_a.ycor() +- 50`. Also, do not forget to change the text to suit a multiplayer environment.
 """
 
 # Environment set up;
 import turtle
+import os
 
 wn = turtle.Screen()
-"""WN functions and properties set the window color, size, and stop it from constantly updating.
-This helps with out game framerates & retro feel."""
+# WN functions and properties set the window color, size, and stop it from constantly updating. This helps with our game framerates & retro feel.
 
 wn.title("Pong by @schumann_victor")
 wn.bgcolor("black")
@@ -18,75 +16,66 @@ wn.tracer(0)
 
 # Paddle A
 paddle_a = turtle.Turtle()
-"""Turtle class allows us to inherit many properties to graphically customize our game elements.
-"""
 paddle_a.speed(0)
 paddle_a.shape("square")
-paddle_a.shapesize(stretch_wid=300, stretch_len=1)
-
+paddle_a.shapesize(stretch_wid=5,stretch_len=1)
 paddle_a.color("white")
 paddle_a.penup()
 paddle_a.goto(-350, 0)
 
 # Paddle B
 paddle_b = turtle.Turtle()
-"""Written in a way that allows multiplayer if a future patch is necessary.
-"""
 paddle_b.speed(0)
 paddle_b.shape("square")
-paddle_b.shapesize(stretch_wid=5, stretch_len=1)
+paddle_b.shapesize(stretch_wid=5,stretch_len=1)
 paddle_b.color("white")
 paddle_b.penup()
 paddle_b.goto(350, 0)
 
 # Ball
 ball = turtle.Turtle()
-"""Friendly reminder: 'dx' & 'dy' define pixel value of delta. Change with caution.
-"""
+# Friendly reminder: 'dx' & 'dy' define pixel value of delta. Change with caution.
 ball.speed(0)
 ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = .1
-ball.dy = .1
+ball.dx = .05
+ball.dy = .05
+
+# Score
+score_a = 0
+score_b = 0
 
 # Pen
 pen = turtle.Turtle()
 pen.speed(0)
+pen.shape("square")
 pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Player Score = 0", align="center", font=("Courier", 10000, "normal"))
+pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
 
 # Functions
-def paddle_a_up():
-    """Assigns y coordinates to custom variable 'y' so we move the paddle_a up.
-    """
+def paddle_a_up(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a up.
     y = paddle_a.ycor()
     y += 30
     paddle_a.sety(y)
 
-def paddle_a_down():
-    """Assigns y coordinates to custom variable 'y' so we move the paddle_a down.
-    """
+def paddle_a_down(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a down.
     y = paddle_a.ycor()
     y -= 30
     paddle_a.sety(y)
 
 def paddle_b_up():
-    """Assigns y coordinates to custom variable 'y' so we move the paddle_b up.
-    """
     y = paddle_b.ycor()
-    y += 40
+    y += 30
     paddle_b.sety(y)
 
 def paddle_b_down():
-    """Assigns y coordinates to custom variable 'y' so we move the paddle_b down.
-    """
     y = paddle_b.ycor()
-    y -= 40
+    y -= 30
     paddle_b.sety(y)
 
 # Keyboard Binding
@@ -108,23 +97,35 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        os.system("aplay pongBounce.wav&")
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        os.system("aplay pongBounce.wav&")
 
-    if ball.xcor() > 390:
+    if ball.xcor() > 350:
+        score_a += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx *= -.2
+        ball.dx *= -1
+        os.system("aplay pongDeath.wav&")
 
-    if ball.xcor() < -390:
+    if ball.xcor() < -350:
+        score_b += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx *= -.2
+        ball.dx *= -1
+        os.system("aplay pongDeath.wav&")
 
     # Bouncing
-    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 300 and ball.ycor() > paddle_a.ycor() - 300:
-        ball.dx *= -1.2
+    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
+        ball.dx *= -1
+        os.system("aplay pongBounce.wav&")
 
 
     if ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
-        ball.dx *= -1.2
+        ball.dx *= -1
+        os.system("aplay pongBounce.wav&")
