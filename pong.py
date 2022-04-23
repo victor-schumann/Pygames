@@ -1,5 +1,7 @@
-"""Simple pong built in Python 3 with the turtle module;
+"""Simple pong singleplayer built in Python 3 with the turtle module;
 Originally made by @TokyoEdTech & customized by @schumann_victor.
+
+The current version of the game in on singleplayer mode. To revert it back to multiplayer, simply change `paddle_a.shapesize(stretch_wid=300)` to `paddle_a.shapesize(stretch_wid=5` and the bouncing `paddle_a.ycor() +- 300` to `paddle_a.ycor() +- 50`
 """
 
 # Environment set up;
@@ -20,7 +22,8 @@ paddle_a = turtle.Turtle()
 """
 paddle_a.speed(0)
 paddle_a.shape("square")
-paddle_a.shapesize(stretch_wid=5, stretch_len=1)
+paddle_a.shapesize(stretch_wid=300, stretch_len=1)
+
 paddle_a.color("white")
 paddle_a.penup()
 paddle_a.goto(-350, 0)
@@ -67,14 +70,14 @@ def paddle_b_up():
     """Assigns y coordinates to custom variable 'y' so we move the paddle_b up.
     """
     y = paddle_b.ycor()
-    y += 30
+    y += 45
     paddle_b.sety(y)
 
 def paddle_b_down():
     """Assigns y coordinates to custom variable 'y' so we move the paddle_b down.
     """
     y = paddle_b.ycor()
-    y -= 30
+    y -= 45
     paddle_b.sety(y)
 
 # Keyboard Binding
@@ -103,15 +106,16 @@ while True:
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dx *= -.2
 
     if ball.xcor() < -390:
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dx *= -.2
 
     # Bouncing
-    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
-        ball.dx *= -1
+    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 300 and ball.ycor() > paddle_a.ycor() - 300:
+        ball.dx *= -1.2
+
 
     if ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
-        ball.dx *= -1
+        ball.dx *= -1.2
