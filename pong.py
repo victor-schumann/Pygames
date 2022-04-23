@@ -124,10 +124,10 @@ while True:
 
     # Bouncing
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
-        ball.dx *= -1.3
+        ball.dx *= -1.2
         os.system("aplay pongBounce.wav&")
 
 
     if ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
-        ball.dx *= -1.3
+        ball.dx *= -1.2
         os.system("aplay pongBounce.wav&")
