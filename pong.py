@@ -1,5 +1,9 @@
 """Simple pong built in Python 3 with the turtle module;
 Originally made by @TokyoEdTech & customized by @schumann_victor.
+
+
+To move the paddles press 'W'/'A' and 'Up Arrow'/'Down Arrow' keys.
+To change the speed of the ball press the 'k' and the 'j' keys.
 """
 
 # Environment set up;
@@ -58,6 +62,16 @@ pen.hideturtle()
 pen.goto(0, 260)
 pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "normal"))
 
+pen_2 = turtle.Turtle()
+pen_2.speed(0)
+pen_2.shape("square")
+pen_2.color("white")
+pen_2.penup()
+pen_2.hideturtle()
+pen_2.goto(0, -260)
+pen_2.write("W/S and UP/DOWN to move, J/K to change speed", align="center", font=("Courier", 24, "normal"))
+
+
 # Functions
 def paddle_a_up(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a up.
     y = paddle_a.ycor()
@@ -79,12 +93,21 @@ def paddle_b_down():
     y -= 45
     paddle_b.sety(y)
 
+def ball_speed_up():
+    ball.dx *= 1.5
+
+def ball_speed_down():
+    ball.dx /= 1.5
+
 # Keyboard Binding
 wn.listen()
 wn.onkeypress(paddle_a_up, "w")
 wn.onkeypress(paddle_a_down, "s")
 wn.onkeypress(paddle_b_up, "Up")
 wn.onkeypress(paddle_b_down, "Down")
+wn.onkeypress(ball_speed_up, "k")
+wn.onkeypress(ball_speed_down, "j")
+
 
 # Main Game Loop
 while True:
