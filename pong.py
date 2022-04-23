@@ -60,22 +60,22 @@ pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 24, "norm
 # Functions
 def paddle_a_up(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a up.
     y = paddle_a.ycor()
-    y += 30
+    y += 60
     paddle_a.sety(y)
 
 def paddle_a_down(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a down.
     y = paddle_a.ycor()
-    y -= 30
+    y -= 60
     paddle_a.sety(y)
 
 def paddle_b_up():
     y = paddle_b.ycor()
-    y += 30
+    y += 60
     paddle_b.sety(y)
 
 def paddle_b_down():
     y = paddle_b.ycor()
-    y -= 30
+    y -= 60
     paddle_b.sety(y)
 
 # Keyboard Binding
