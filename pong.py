@@ -5,6 +5,7 @@ Originally made by @TokyoEdTech & customized by @schumann_victor.
 # Environment set up;
 import turtle
 import os
+import random
 
 wn = turtle.Screen()
 # WN functions and properties set the window color, size, and stop it from constantly updating. This helps with our game framerates & retro feel.
@@ -40,8 +41,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = .05
-ball.dy = .05
+ball.dx = random.choice([.05, -.05])
+ball.dy = random.choice([.05, -.05])
 
 # Score
 score_a = 0
@@ -109,8 +110,8 @@ while True:
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx = -.05
-        ball.dy = -.05
+        ball.dx = random.choice([.05, -.05])
+        ball.dy = random.choice([.05, -.05])
         os.system("aplay pongDeath.wav&")
 
     if ball.xcor() < -350:
@@ -118,8 +119,8 @@ while True:
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx = .05
-        ball.dy = .05
+        ball.dx = random.choice([.05, -.05])
+        ball.dy = random.choice([.05, -.05])
         os.system("aplay pongDeath.wav&")
 
     if paddle_b.ycor() > 240:
