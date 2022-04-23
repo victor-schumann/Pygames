@@ -109,7 +109,8 @@ while True:
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dx = -.05
+        ball.dy = -.05
         os.system("aplay pongDeath.wav&")
 
     if ball.xcor() < -350:
@@ -117,15 +118,16 @@ while True:
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dx = .05
+        ball.dy = .05
         os.system("aplay pongDeath.wav&")
 
     # Bouncing
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
-        ball.dx *= -1
+        ball.dx *= -1.3
         os.system("aplay pongBounce.wav&")
 
 
     if ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
-        ball.dx *= -1
+        ball.dx *= -1.3
         os.system("aplay pongBounce.wav&")
