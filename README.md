@@ -2,7 +2,7 @@
 <p align="justify">A simple repository where I will organize all my python projects that are videogame themed.</p>
 
 * [Pong](#pong)
-* [Space Invaders](#)
+* [Space Invaders](#space-invaders)
 
 ## Pong
 <br><div align="center">
