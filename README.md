@@ -13,10 +13,16 @@
 
 ## Space Invaders
 <br><div align="center">
-  <img src='https://i.imgur.com/.png' alt='ADD IMG HERE' style="width: 75%"/>
+  <img src='https://i.imgur.com/yOApSVf.png' alt='ADD IMG HERE' style="width: 75%"/>
 </div><br>
 
-<p align="justify">ADD TEXT HERE</p>
+Project Checklist:
+- [X] Add basic resources;
+- [X] Import images;
+- [X] Edit & customize sprites;
+- [ ] Implement basic game functions;
+- [ ] Import sounds;
+- [ ] Customize menu;
 
 
 # Contact & Info
