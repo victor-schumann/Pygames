@@ -24,7 +24,7 @@
 - [ ] Customize menu;
 
 
-  # Contact & Info
+# Contact & Info
 <h1 align="center">Hello, World 👋 <br> I'm Victor Schumann</h1>
 <h3 align="center">A passionate developer & student from Brazil</h3><br>
 <p align="center">
