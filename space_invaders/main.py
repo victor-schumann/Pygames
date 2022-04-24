@@ -5,21 +5,21 @@ import time
 import random
 
 # Screen Config
-WIDTH, HEIGHT = 750, 750
+WIDTH, HEIGHT = 1280, 720
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Friendly Space Game")
+pygame.display.set_caption("Friendly Space Shooter by @schumann_victor")
 
 """
-While trying to implement this, I was getting the following error:
-```
-libGL error: MESA-LOADER: failed to open iris: /home/yui/anaconda3/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /usr/lib64/dri/iris_dri.so) (search paths /usr/lib64/dri, suffix _dri)
-```
-If you find this too, deleting the `libstdc++.so.6` file allows the code to run as intended. I'm not sure what this file was supposed to do, but I backed it up just in case. Thus, you should do the same.
+While trying to implement the resolution, I was getting the following error:
+
+```libGL error: MESA-LOADER: failed to open iris: /home/yui/anaconda3/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /usr/lib64/dri/iris_dri.so) (search paths /usr/lib64/dri, suffix _dri)```
+
+If you get this too, deleting the `libstdc++.so.6` file allows the code to run as intended. I'm not sure what this file was supposed to do, but I backed it up just in case, and I recommend you do the same.
 """
 
 
 # Image Loading
-bg = pygame.image.load(os.path.join("assets", "background_black.png"))
+BG = pygame.transform.scale(pygame.image.load(os.path.join("assets", "background_space_black.png")), (WIDTH, HEIGHT))
 
 # Space Ships
 ENEMY_SHIP_V = pygame.image.load(os.path.join("assets", "pixel_ship_vertical.png"))
@@ -46,8 +46,13 @@ def main():
     FPS = 60
     clock = pygame.time.Clock() # Associated with `clock.tick(FPS)`, this makes sure our game stays consistent independently of the device you're running the game.
 
+    def redraw_window(): # Manages game rendering
+        WIN.blit(BG, (0,0))
+        pygame.display.update()
+
     while run:
         clock.tick(FPS)
+        redraw_window()
 
         for event in pygame.event.get():
             if event.type ==pygame.QUIT: # This makes sure our game quits when intended. Nobody wants to get stuck in an infinite loop.
