@@ -52,6 +52,7 @@ ball.dy = random.choice([.05, -.05])
 score_a = 0
 score_b = 0
 
+
 # Pen
 pen = turtle.Turtle()
 pen.speed(0)
@@ -75,29 +76,29 @@ pen_2.write("W/S and UP/DOWN to move, J/K to change speed", align="center", font
 # Functions
 def paddle_a_up(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a up.
     y = paddle_a.ycor()
-    y += 45
+    y += 60
     paddle_a.sety(y)
 
 def paddle_a_down(): # Assigns y coordinates to custom variable 'y' so we move the paddle_a down.
     y = paddle_a.ycor()
-    y -= 45
+    y -= 60
     paddle_a.sety(y)
 
 def paddle_b_up():
     y = paddle_b.ycor()
-    y += 45
+    y += 60
     paddle_b.sety(y)
 
 def paddle_b_down():
     y = paddle_b.ycor()
-    y -= 45
+    y -= 60
     paddle_b.sety(y)
 
 def ball_speed_up():
-    ball.dx *= 1.5
+    ball.dx *= 1.2
 
 def ball_speed_down():
-    ball.dx /= 1.5
+    ball.dx /= 1.2
 
 # Keyboard Binding
 wn.listen()
@@ -121,12 +122,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        os.system("aplay pongBounce.wav&")
+        os.system("aplay pong_bounce.wav&")
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        os.system("aplay pongBounce.wav&")
+        os.system("aplay pong_bounce.wav&")
 
     if ball.xcor() > 350:
         score_a += 1
@@ -135,7 +136,7 @@ while True:
         ball.goto(0, 0)
         ball.dx = random.choice([.05, -.05])
         ball.dy = random.choice([.05, -.05])
-        os.system("aplay pongDeath.wav&")
+        os.system("aplay pong_death.wav&")
 
     if ball.xcor() < -350:
         score_b += 1
@@ -144,7 +145,7 @@ while True:
         ball.goto(0, 0)
         ball.dx = random.choice([.05, -.05])
         ball.dy = random.choice([.05, -.05])
-        os.system("aplay pongDeath.wav&")
+        os.system("aplay pong_death.wav&")
 
     if paddle_b.ycor() > 240:
         paddle_b.sety(240)
@@ -159,11 +160,11 @@ while True:
         paddle_a.sety(-240)
 
     # Bouncing
-    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 60 and ball.ycor() > paddle_a.ycor() - 60:
-        ball.dx *= -1.2
-        os.system("aplay pongBounce.wav&")
+    if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 65 and ball.ycor() > paddle_a.ycor() - 65:
+        ball.dx *= -1.1
+        os.system("aplay pong_bounce.wav&")
 
 
-    if ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 60 and ball.ycor() > paddle_b.ycor() - 60:
-        ball.dx *= -1.2
-        os.system("aplay pongBounce.wav&")
+    if ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 65 and ball.ycor() > paddle_b.ycor() - 65:
+        ball.dx *= -1.1
+        os.system("aplay pong_bounce.wav&")
