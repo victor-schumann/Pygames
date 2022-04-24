@@ -1,8 +1,29 @@
-from time import time
 import pygame
 import os
 import time
 import random
+
+# Inits
+pygame.font.init() # In pygame, it's necessary to initialize a few things before we can run the code.
+
+# Scrolling Class
+class Space(pygame.sprite.Sprite):
+    def __init__(self, num):
+        pygame.sprite.Sprite.__init__(self)
+        self.rect.top = num * 600
+        self.image, self.rect = load_image("space.png", 10)
+        self.dx = -5
+        self.reset()
+
+    def update(self):
+        self.rect.top += self.dx
+        if self.rect.top <= -1200:
+            self.reset() 
+
+    def reset(self):
+        self.rect.top = 600
+ 
+
 
 # Screen Config
 WIDTH, HEIGHT = 1280, 720
@@ -45,9 +66,21 @@ def main():
     run = True
     FPS = 60
     clock = pygame.time.Clock() # Associated with `clock.tick(FPS)`, this makes sure our game stays consistent independently of the device you're running the game.
+    level = 1
+    lives = 10
+    main_font = pygame.font.SysFont("couriernew", 20)
+    title_font = pygame.font.SysFont("couriernew", 50)
 
     def redraw_window(): # Manages game rendering
-        WIN.blit(BG, (0,0))
+        WIN.blit(BG, (0,0)) # Draws the background
+        # x_text initializes our text variables
+        lives_text = main_font.render(f"Lives: {lives}", 1, (255, 255, 255))
+        level_text = title_font.render(f"WORK IN PROGRESS - COME BACK LATER!!", 1, (255, 230, 0))
+        # Friendly reminder to add ": {level}", 1," instead of "!!"
+
+        WIN.blit(lives_text, (10, 10))
+        WIN.blit(level_text, level_text.get_rect(center = WIN.get_rect().center))
+
         pygame.display.update()
 
     while run:
@@ -55,7 +88,7 @@ def main():
         redraw_window()
 
         for event in pygame.event.get():
-            if event.type ==pygame.QUIT: # This makes sure our game quits when intended. Nobody wants to get stuck in an infinite loop.
+            if event.type ==pygame.QUIT: # This makes sure our game quits when intended. Nobody wants to bargain with Dormamu.
                 run = False
 
 main ()
