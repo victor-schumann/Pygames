@@ -218,6 +218,14 @@ def makeSprite(filename, frames=1, altDims = None):
     return thisSprite
 
 def moveSprite(sprite, x, y, centre=False):
+    """This function is responsible for defining the position of our sprite in the screen.
+
+    Args:
+        sprite ('newSprite' class object): currently imported from "images/links.gif"
+        x (int): x axis position
+        y (int): y axis position
+        centre (bool, optional): Automatically centers the character onto the given position. Defaults to False.
+    """
     sprite.move(x, y, centre)
     if screenRefresh:
         updateDisplay()
@@ -243,10 +251,6 @@ def transformSprite(sprite, angle, scale, hflip=False, vflip=False):
     sprite.mask = pygame.mask.from_surface(sprite.image)
     if screenRefresh:
         updateDisplay()
-
-def rotateSprite(sprite, angle):
-    print("rotateSprite has been deprecated. Please use transformSprite")
-    transformSprite(sprite, angle, 1)
 
 def changeSpriteImage(sprite, index):
     sprite.changeImage(index)
@@ -293,16 +297,16 @@ def loadImage(fileName, useColorKey=False):
         raise Exception(f"Error loading image: {fileName} – Check filename and path?")
 
 # Test
-screenSize(600,600)
+screenSize(1280,720)
 setAutoUpdate(False)
 
-setBackgroundImage( [  ["images/dungeonFloor1.png", "images/dungeonFloor2.png"] ,
-                       ["images/dungeonFloor3.png", "images/dungeonFloor4.png"]  ])
+setBackgroundImage( ["images/full_space.png"])
 
 
 testSprite  = makeSprite("images/links.gif",32)  # links.gif contains 32 separate frames of animation. Sizes are automatically calculated.
 
-moveSprite(testSprite,300,300,True)
+moveSprite(testSprite,320,360,True)
+
 
 showSprite(testSprite)
 
