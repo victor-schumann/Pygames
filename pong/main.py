@@ -45,8 +45,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = random.choice([.05, -.05])
-ball.dy = random.choice([.05, -.05])
+ball.dx = random.choice([.2, -.2])
+ball.dy = random.choice([.2, -.2])
 
 # Score
 score_a = 0
@@ -143,8 +143,8 @@ while True:
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx = random.choice([.05, -.05])
-        ball.dy = random.choice([.05, -.05])
+        ball.dx = random.choice([.2, -.2])
+        ball.dy = random.choice([.2, -.2])
         os.system("aplay pong_death.wav&")
 
     if paddle_b.ycor() > 240:
