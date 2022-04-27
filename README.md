@@ -1,6 +1,8 @@
 # Python Games
 <p align="justify">A simple repository where I will organize all my python projects that are videogame themed.</p>
 
+<!-- remember to add gifs next -->
+
 * [Pong](#pong)
 * [Space Invaders](#space-invaders)
 ## Pong
