@@ -6,11 +6,7 @@
 * [Pong](#pong)
 * [Space Invaders](#space-invaders)
 ## Pong
-<blockquote class="imgur-embed-pub" lang="en" data-id="5qVfU8L"><a href="https://imgur.com/5qVfU8L">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-
-<br><div align="center">
-  <img src='https://i.imgur.com/N5VLmeP.png' alt='lonely pong' style="width: 75%"/>
-</div><br>
+<video src='https://imgur.com/5qVfU8L' width=50/>
 
 <p align="justify">A simple pong clone that works with the Turtle library. I followed @TokyoEdTech tutorial on it, and while it does not go in depth with Object Oriented Programming, it's a nice bare bones approach to gamedev. I recommend it to any begginer who wants a hands on approach.</p>
 
