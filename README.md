@@ -8,7 +8,9 @@
 
 ## Pong
 
-[Imgur](https://imgur.com/5qVfU8L)
+[gif](pong_demo.gif)
+
+[video](pong_demo.mp4)
 
 <p align="justify">A simple pong clone that works with the Turtle library. I followed @TokyoEdTech tutorial on it, and while it does not go in depth with Object Oriented Programming, it's a nice bare bones approach to gamedev. I recommend it to any begginer who wants a hands on approach.</p>
 
