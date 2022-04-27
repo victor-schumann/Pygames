@@ -19,6 +19,7 @@
 - [X] Add basic resources;
 - [X] Import images;
 - [X] Edit & customize sprites;
+- [X] Get scrolling background working;
 - [ ] Implement basic game functions;
 - [ ] Import sounds;
 - [ ] Customize menu;
